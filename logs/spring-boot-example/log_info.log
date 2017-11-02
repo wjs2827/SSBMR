@@ -1,0 +1,42 @@
+===2017-11-02 15:00:27.301 INFO  com.test.springboot.HelloApplication Line:48  - Starting HelloApplication on 17W1KL2 with PID 2400 (D:\work-test\SSBMR\target\classes started by jinshan.wang.it in D:\work-test\SSBMR)
+===2017-11-02 15:00:27.302 INFO  com.test.springboot.HelloApplication Line:593 - No active profile set, falling back to default profiles: default
+===2017-11-02 15:00:27.513 INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext Line:583 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2111e072: startup date [Thu Nov 02 15:00:27 CST 2017]; root of context hierarchy
+===2017-11-02 15:00:27.580 INFO  org.hibernate.validator.internal.util.Version Line:30  - HV000001: Hibernate Validator 5.3.5.Final
+===2017-11-02 15:00:28.277 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate Line:165 - Multiple Spring Data modules found, entering strict repository configuration mode!
+===2017-11-02 15:00:29.281 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:89  - Tomcat initialized with port(s): 80 (http)
+===2017-11-02 15:00:29.291 INFO  org.apache.catalina.core.StandardService Line:179 - Starting service [Tomcat]
+===2017-11-02 15:00:29.292 INFO  org.apache.catalina.core.StandardEngine Line:179 - Starting Servlet Engine: Apache Tomcat/8.5.16
+===2017-11-02 15:00:29.376 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring embedded WebApplicationContext
+===2017-11-02 15:00:29.377 INFO  org.springframework.web.context.ContextLoader Line:276 - Root WebApplicationContext: initialization completed in 1864 ms
+===2017-11-02 15:00:29.402 INFO  com.test.springboot.config.JdbcConfig Line:112 - Thu Nov 02 15:00:29 CST 2017##################druid监控加载开始#############################
+===2017-11-02 15:00:29.414 INFO  com.test.springboot.config.JdbcConfig Line:127 - Thu Nov 02 15:00:29 CST 2017##################druid监控过滤加载开始#############################
+===2017-11-02 15:00:29.578 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:190 - Mapping servlet: 'statViewServlet' to [/druid/*]
+===2017-11-02 15:00:29.579 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:190 - Mapping servlet: 'dispatcherServlet' to [/]
+===2017-11-02 15:00:29.583 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+===2017-11-02 15:00:29.584 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+===2017-11-02 15:00:29.584 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+===2017-11-02 15:00:29.584 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'requestContextFilter' to: [/*]
+===2017-11-02 15:00:29.584 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:271 - Mapping filter: 'webStatFilter' to urls: [/*]
+===2017-11-02 15:00:29.724 INFO  com.test.springboot.config.JdbcConfig Line:62  - Thu Nov 02 15:00:29 CST 2017##################数据源启动加载开始#############################
+===2017-11-02 15:00:30.379 INFO  com.test.springboot.config.JdbcConfig Line:137 - Thu Nov 02 15:00:30 CST 2017##################fzby#############################
+===2017-11-02 15:00:30.856 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:534 - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2111e072: startup date [Thu Nov 02 15:00:27 CST 2017]; root of context hierarchy
+===2017-11-02 15:00:30.924 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/index]}" onto public java.lang.String com.test.springboot.controller.StudentController.getData(org.springframework.ui.Model)
+===2017-11-02 15:00:30.925 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/toDelete]}" onto public java.lang.String com.test.springboot.controller.StudentController.toDelete(java.lang.Integer)
+===2017-11-02 15:00:30.925 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/student]}" onto public com.test.springboot.dao.pojo.Student com.test.springboot.controller.StudentController.getStudent(java.lang.Integer)
+===2017-11-02 15:00:30.925 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/toAdd]}" onto public java.lang.String com.test.springboot.controller.StudentController.toAdd(java.lang.Integer,org.springframework.ui.Model)
+===2017-11-02 15:00:30.925 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/addUpdateStudent]}" onto public java.lang.String com.test.springboot.controller.StudentController.addUpdateStudent(com.test.springboot.dao.pojo.Student)
+===2017-11-02 15:00:30.926 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/user/queryUser]}" onto public void com.test.springboot.controller.UserController.queryList()
+===2017-11-02 15:00:30.931 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+===2017-11-02 15:00:30.931 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+===2017-11-02 15:00:30.999 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2017-11-02 15:00:30.999 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2017-11-02 15:00:31.053 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+===2017-11-02 15:00:32.117 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:431 - Registering beans for JMX exposure on startup
+===2017-11-02 15:00:32.118 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:916 - Bean with name 'dataSource' has been autodetected for JMX exposure
+===2017-11-02 15:00:32.122 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:671 - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+===2017-11-02 15:00:32.127 INFO  org.springframework.context.support.DefaultLifecycleProcessor Line:343 - Starting beans in phase 2147483647
+===2017-11-02 15:00:32.158 INFO  org.apache.coyote.http11.Http11NioProtocol Line:179 - Initializing ProtocolHandler ["http-nio-80"]
+===2017-11-02 15:00:32.168 INFO  org.apache.coyote.http11.Http11NioProtocol Line:179 - Starting ProtocolHandler ["http-nio-80"]
+===2017-11-02 15:00:32.176 INFO  org.apache.tomcat.util.net.NioSelectorPool Line:179 - Using a shared selector for servlet write/read
+===2017-11-02 15:00:32.196 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:201 - Tomcat started on port(s): 80 (http)
+===2017-11-02 15:00:32.200 INFO  com.test.springboot.HelloApplication Line:57  - Started HelloApplication in 5.262 seconds (JVM running for 5.563)
