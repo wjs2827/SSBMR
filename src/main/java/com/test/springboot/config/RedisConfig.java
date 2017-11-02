@@ -14,6 +14,11 @@ import com.test.springboot.util.RedisUtil;
 
 import redis.clients.jedis.JedisPoolConfig;
 
+/**
+ * redis缓存配置加载
+ * @author jinshan.wang.it
+ *
+ */
 @Configuration
 public class RedisConfig {
 	

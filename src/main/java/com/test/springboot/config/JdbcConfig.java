@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Date;
 
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
 //import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -11,6 +13,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -19,6 +22,11 @@ import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;
 import com.test.springboot.util.Base64Util;
 
+/**
+ * 数据源配置
+ * @author jinshan.wang.it
+ *
+ */
 @Configuration
 public class JdbcConfig {
 	
@@ -104,7 +112,23 @@ public class JdbcConfig {
 	}
 	
 	/**
+	 * 创建SqlSessionFactory 并加载mapper接口对应的xml
+	 * @return
+	 * @throws Exception
+	 */
+	@Bean
+	public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
+		log.info("###############创建SqlSessionFactory#############################");
+		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+		sqlSessionFactoryBean.setDataSource(dataSource());
+		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mapper/*.xml"));
+		return sqlSessionFactoryBean.getObject();
+	}
+	
+	/**
      * druid监控
+     * 监控访问地址 http://localhost/druid/index.html
      * @return
      */
     @Bean
