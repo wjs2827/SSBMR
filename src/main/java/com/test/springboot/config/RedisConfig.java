@@ -1,5 +1,7 @@
 package com.test.springboot.config;
 
+import java.util.Date;
+
 //import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +12,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import com.alibaba.druid.support.logging.Log;
+import com.alibaba.druid.support.logging.LogFactory;
 import com.test.springboot.util.RedisUtil;
 
 import redis.clients.jedis.JedisPoolConfig;
@@ -21,6 +25,8 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 @Configuration
 public class RedisConfig {
+	
+	private static final Log log=LogFactory.getLog(JdbcConfig.class); 
 	
 //	@Value("${redis.hostName}")
 //	private String hostName;
@@ -37,6 +43,7 @@ public class RedisConfig {
 	 */
 	@Bean
 	public JedisPoolConfig jedisPoolConfig(){
+		log.info(new Date()+"##################redis连接池配置#############################");
 		JedisPoolConfig jedisPoolConfig=new JedisPoolConfig();
 		//最大空闲数
 		jedisPoolConfig.setMaxIdle(300);
@@ -83,6 +90,7 @@ public class RedisConfig {
 	@Bean
 	@ConfigurationProperties(prefix = "redis")//指定数据源的前缀,在application.properties文件中指定
 	public JedisConnectionFactory jedisConnectionFactory(JedisPoolConfig jedisPoolConfig){
+		log.info(new Date()+"##################redis指定数据源#############################");
 		return new JedisConnectionFactory();
 //		JedisConnectionFactory jedisConnectionFactory=new JedisConnectionFactory();
 //		//连接池
@@ -104,6 +112,7 @@ public class RedisConfig {
      */
     @Bean
     public RedisTemplate<String, Object> functionDomainRedisTemplate(JedisConnectionFactory jedisConnectionFactory) {
+    	log.info(new Date()+"##################实例化 RedisTemplate 对象#############################");
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
         initDomainRedisTemplate(redisTemplate, jedisConnectionFactory);
         return redisTemplate;
@@ -126,6 +135,7 @@ public class RedisConfig {
     
     @Bean(name="redisUtil")
     public RedisUtil redisUtil(RedisTemplate<String, Object> redisTemplate){
+    	log.info(new Date()+"##################redisUtil工具#############################");
     	RedisUtil redisUtil=new RedisUtil();
     	redisUtil.setRedisTemplate(redisTemplate);
     	return redisUtil;
