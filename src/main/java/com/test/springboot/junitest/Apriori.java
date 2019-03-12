@@ -150,7 +150,7 @@ public class Apriori {
 		if (L.size() > 0) {
 			ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 			//Math.pow(2, L.size())  集合长度为幂次方数  2为底数    如果L.size()=3 则结果为：2的三次方：8
-			for (int i = 0; i < Math.pow(2, L.size()); i++) {// 集合子集个数=2的该集合长度的乘方
+			for (int i = 0; i < Math.pow(2, L.size()); i++) {
 				ArrayList<String> subSet = new ArrayList<String>();
 				int index = i;// 索引从0一直到2的集合长度的乘方-1
 				for (int j = 0; j < L.size(); j++) {
@@ -159,6 +159,9 @@ public class Apriori {
 						subSet.add(L.get(j));
 					}
 					index >>= 1;// 索引右移一位
+				}
+				if(subSet.isEmpty()) {
+					continue;
 				}
 				result.add(subSet); // 把子集存储起来
 			}
@@ -188,7 +191,7 @@ public class Apriori {
 	public static void connection() {
 		for (ArrayList<String> key : L.keySet()) {// 对最终的关联集各个事件进行判断
 			ArrayList<ArrayList<String>> key_allSubset = getSubset(key);
-			// System.out.println(key_allSubset);
+			System.out.println(key_allSubset);
 			for (int i = 0; i < key_allSubset.size(); i++) {
 				ArrayList<String> item_pre = key_allSubset.get(i);
 				if (0 < item_pre.size() && item_pre.size() < key.size()) {// 求其非空真子集
