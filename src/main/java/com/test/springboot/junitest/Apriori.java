@@ -3,14 +3,18 @@ package com.test.springboot.junitest;
 import java.io.*;
 import java.util.*;
 
+import org.codehaus.groovy.util.StringUtil;
+
+import com.alibaba.druid.util.StringUtils;
+
 public class Apriori {
  
 	static String filePath = "D:\\import\\apriori.txt";
 	static ArrayList<ArrayList<String>> D = new ArrayList<ArrayList<String>>();// 事务数据库
 	static HashMap<ArrayList<String>, Double> C = new HashMap<ArrayList<String>, Double>();// 项目集
 	static HashMap<ArrayList<String>, Double> L = new HashMap<ArrayList<String>, Double>();// 候选集
-	static double min_support = 0.5;// 最小支持度
-	static double min_confident = 0.7;// 最小置信度
+	static double min_support = 0.6;// 最小支持度
+	static double min_confident = 0.8;// 最小置信度
  
 	// 用于存取候选集每次计算结果，最后计算关联规则，就不用再次遍历事务数据库，这么麻烦了。
 	static HashMap<ArrayList<String>, Double> L_ALL = new HashMap<ArrayList<String>, Double>();
@@ -191,11 +195,13 @@ public class Apriori {
 	public static void connection() {
 		for (ArrayList<String> key : L.keySet()) {// 对最终的关联集各个事件进行判断
 			ArrayList<ArrayList<String>> key_allSubset = getSubset(key);
-			System.out.println(key_allSubset);
 			for (int i = 0; i < key_allSubset.size(); i++) {
 				ArrayList<String> item_pre = key_allSubset.get(i);
 				if (0 < item_pre.size() && item_pre.size() < key.size()) {// 求其非空真子集
 					// 各个非空互补真子集之间形成关联事件
+					if(null==L_ALL.get(item_pre)) {
+						continue;
+					}
 					double item_pre_support = L_ALL.get(item_pre);
 					for (int j = 0; j < key_allSubset.size(); j++) {
 						ArrayList<String> item_post = key_allSubset.get(j);
@@ -204,6 +210,9 @@ public class Apriori {
 								&& arrayListUnion(item_pre, item_post).equals(
 										key)
 								&& intersectionIsNull(item_pre, item_post)) {
+							if(null==L_ALL.get(item_post)) {
+								continue;
+							}
 							double item_post_support = L_ALL.get(item_post);// 互补真子集的支持度比则是事件的置信度
 							double confident = item_pre_support
 									/ item_post_support; // 事件的置信度
